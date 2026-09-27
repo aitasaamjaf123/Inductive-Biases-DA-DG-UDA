@@ -1,0 +1,50 @@
+{
+  "method": "dan_dg",
+  "sweep": {
+    "0.1": {
+      "lambda_dg": 0.1,
+      "source_aggregate": {
+        "mean_accuracy": 0.9381835424268213,
+        "worst_accuracy": 0.926829268292683,
+        "mean_macro_f1": 0.9360945933167456,
+        "worst_macro_f1": 0.9234898081117057
+      },
+      "source_domain_separability": {
+        "source_domain_separability_accuracy": 0.8372093023255814,
+        "chance_level": 0.3333333333333333
+      },
+      "sketch_accuracy": 0.7052685161618732,
+      "sketch_macro_f1": 0.7025116107685241
+    },
+    "1.0": {
+      "lambda_dg": 1.0,
+      "source_aggregate": {
+        "mean_accuracy": 0.9384168062024582,
+        "worst_accuracy": 0.9121951219512195,
+        "mean_macro_f1": 0.9374886248684152,
+        "worst_macro_f1": 0.9142872442724915
+      },
+      "source_domain_separability": {
+        "source_domain_separability_accuracy": 0.6777408637873754,
+        "chance_level": 0.3333333333333333
+      },
+      "sketch_accuracy": 0.533469076100789,
+      "sketch_macro_f1": 0.5716263205967851
+    },
+    "10.0": {
+      "lambda_dg": 10.0,
+      "source_aggregate": {
+        "mean_accuracy": 0.15527636287049387,
+        "worst_accuracy": 0.09281437125748503,
+        "mean_macro_f1": 0.09128324005886752,
+        "worst_macro_f1": 0.07217096929515908
+      },
+      "source_domain_separability": {
+        "source_domain_separability_accuracy": 0.6810631229235881,
+        "chance_level": 0.3333333333333333
+      },
+      "sketch_accuracy": 0.18223466530923899,
+      "sketch_macro_f1": 0.04416481618554158
+    }
+  }
+}

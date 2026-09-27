@@ -1,0 +1,14 @@
+# task2/configs/dan.yaml
+# Extends base.yaml. DAN: MMD alignment between source and target features
+# taken immediately before the classifier head.
+extends: base.yaml
+method: dan
+run_name: dan
+alignment_loss: mmd
+lambda_mmd: 1.0                     # main comparison value
+mmd_kernel_mults: [0.5, 1.0, 2.0]   # x median pairwise squared distance in the current batch
+
+# Controlled design study (Step 6) — sweep lambda_mmd, everything else fixed.
+controlled_study:
+  axis: lambda_mmd
+  grid: [0.1, 1.0, 10.0]

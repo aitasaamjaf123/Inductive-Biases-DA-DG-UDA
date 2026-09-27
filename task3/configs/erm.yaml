@@ -1,0 +1,36 @@
+# task3/configs/erm.yaml
+#
+# NOTE: this file is a documentation/record artifact, not something the code
+# parses. The actual runtime configuration is the CONFIG dict defined in
+# task3/shared/pacs_protocol.py (Python, not YAML). See task3/README.md for
+# why task3 has its own local shared/ and its own CONFIG schema instead of
+# reusing task2's shared/pacs_protocol.py verbatim.
+
+seed: 6304
+pacs_root: "/kaggle/input/datasets/nickfratto/pacs-dataset/pacs_data/pacs_data"  # edit to your PACS path
+output_dir: "/kaggle/working/task3_outputs"
+task2_checkpoint_path: ""   # <-- set to your Task 2 source_only.pt to reuse the real ERM checkpoint
+
+source_domains: [photo, art_painting, cartoon]
+target_domain: sketch
+class_names: null   # null -> auto-discover from photo/ subfolders, sorted()
+
+backbone: resnet18
+backbone_weights: ResNet18_Weights.IMAGENET1K_V1
+freeze_batchnorm_running_stats: true
+
+optimizer: AdamW
+lr: 1.0e-4
+weight_decay: 1.0e-4
+max_epochs: 30
+early_stop_patience: 5
+batch_per_source: 8   # -> 24 source images / step
+
+method: erm
+run_name: erm_scratch
+notes: >
+  ERM baseline. The assignment requires this to be the SAME checkpoint as
+  Task 2's Source-only model (do not retrain it under a different
+  configuration). task3/methods/erm.py implements both the protocol-correct
+  path (get_erm_model, loads task2_checkpoint_path) and a from-scratch
+  fallback (train_erm_from_scratch, what train.py's main() calls by default).

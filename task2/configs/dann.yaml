@@ -1,0 +1,15 @@
+# task2/configs/dann.yaml
+# Extends base.yaml. DANN: gradient-reversal + binary domain discriminator
+# on the 512-d feature.
+extends: base.yaml
+method: dann
+run_name: dann
+alignment_loss: domain_adversarial
+grl_schedule: "2 / (1 + exp(-10p)) - 1"
+grl_max_alpha: 1.0                  # main comparison value, scales the schedule above
+domain_discriminator_input: feature  # 512-d
+
+# Controlled design study (Step 6) — sweep grl_max_alpha, everything else fixed.
+controlled_study:
+  axis: grl_max_alpha
+  grid: [0.25, 0.5, 1.0]

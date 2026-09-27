@@ -1,0 +1,17 @@
+# task3/configs/dan_dg.yaml
+# Extends erm.yaml. DAN-DG: pairwise multi-kernel MMD averaged over the THREE
+# unordered pairs of observed source domains (Photo/Art Painting/Cartoon).
+# Never accesses Sketch.
+extends: erm.yaml
+method: dan_dg
+run_name: dan_dg_main
+alignment_loss: pairwise_source_mmd
+lambda_dg: 1.0                      # main comparison value
+mmd_kernel_mults: [0.5, 1.0, 2.0]   # x median pairwise squared distance per domain pair, per batch
+
+# Controlled design study (Step 5) — sweep lambda_dg, everything else fixed.
+# (Assignment: choose ONE of DAN-DG-lambda or SAM-rho; this repo runs
+# whichever CONFIG["CONTROLLED_STUDY_METHOD"] selects.)
+controlled_study:
+  axis: lambda_dg
+  grid: [0.1, 1.0, 10.0]

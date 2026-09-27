@@ -1,0 +1,8 @@
+# task2/configs/source_only.yaml
+# Extends base.yaml. Source-only ERM: plain cross-entropy over the three
+# labeled source domains, no alignment term. Also the frozen Task 3 ERM
+# baseline checkpoint (do not retrain it there).
+extends: base.yaml
+method: source_only
+run_name: source_only
+alignment_loss: none

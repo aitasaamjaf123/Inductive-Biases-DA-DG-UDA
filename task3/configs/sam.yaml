@@ -1,0 +1,18 @@
+# task3/configs/sam.yaml
+# Extends erm.yaml. SAM: standard, non-adaptive Sharpness-Aware Minimization,
+# two forward/backward passes per step (ascent then descent), same frozen
+# BatchNorm policy as ERM/DAN-DG.
+extends: erm.yaml
+method: sam
+run_name: sam_main
+rho: 0.05          # main comparison value
+base_optimizer: AdamW
+
+# Controlled design study (Step 5) — sweep rho, everything else fixed.
+controlled_study:
+  axis: rho
+  grid: [0.01, 0.05, 0.1]
+
+sharpness_proxy:
+  rho: 0.05
+  n_per_source: 32   # fixed validation batch, seed 6304, shared across ERM/DAN-DG/SAM

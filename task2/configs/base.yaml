@@ -1,0 +1,35 @@
+# task2/configs/base.yaml
+#
+# NOTE: this file is a documentation/record artifact, not something the code
+# parses. The actual runtime configuration is the CONFIG dict defined in
+# shared/pacs_protocol.py (Python, not YAML). These YAML files exist purely
+# so the repository has the "configs/" folder the assignment's suggested
+# structure asks for, and so every reported number can be traced to a fixed,
+# committed hyperparameter record. If you rewire the code to actually read
+# YAML, update train.py's build_models()/train_method() accordingly.
+
+seed: 6304
+data_root: "/kaggle/input/datasets/nickfratto/pacs-dataset/pacs_data/pacs_data"  # edit to your PACS path
+output_root: "/kaggle/working/task2_outputs"
+
+classes: [dog, elephant, giraffe, guitar, horse, house, person]
+source_domains: [photo, art_painting, cartoon]
+target_domain: sketch
+val_fraction: 0.2
+
+backbone: resnet18
+backbone_weights: ResNet18_Weights.IMAGENET1K_V1
+freeze_batchnorm_running_stats: true   # gamma/beta stay trainable
+
+optimizer: AdamW
+lr: 1.0e-4
+weight_decay: 1.0e-4
+max_epochs: 30
+early_stop_patience: 5
+
+per_source_domain_batch: 8   # -> 24 source images / step
+target_batch: 24             # equal total source / target batch size
+
+domain_discriminator_hidden: 256
+domain_discriminator_dropout: 0.5
+grad_clip_norm: 5.0

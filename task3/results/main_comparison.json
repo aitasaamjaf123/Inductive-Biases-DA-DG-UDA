@@ -1,0 +1,83 @@
+{
+  "erm": {
+    "per_domain": {
+      "photo": {
+        "accuracy": 0.9640718562874252,
+        "macro_f1": 0.9570969155523225
+      },
+      "art_painting": {
+        "accuracy": 0.9,
+        "macro_f1": 0.8980963270471874
+      },
+      "cartoon": {
+        "accuracy": 0.9125799573560768,
+        "macro_f1": 0.9140284663891415
+      }
+    },
+    "aggregate": {
+      "mean_accuracy": 0.925550604547834,
+      "worst_accuracy": 0.9,
+      "mean_macro_f1": 0.923073902996217,
+      "worst_macro_f1": 0.8980963270471874
+    },
+    "source_domain_separability": {
+      "source_domain_separability_accuracy": 0.893687707641196,
+      "chance_level": 0.3333333333333333
+    },
+    "sharpness_delta": 0.31802280247211456
+  },
+  "dan_dg": {
+    "per_domain": {
+      "photo": {
+        "accuracy": 0.9670658682634731,
+        "macro_f1": 0.9611761798093772
+      },
+      "art_painting": {
+        "accuracy": 0.9195121951219513,
+        "macro_f1": 0.9193201995338806
+      },
+      "cartoon": {
+        "accuracy": 0.9466950959488273,
+        "macro_f1": 0.951250296318434
+      }
+    },
+    "aggregate": {
+      "mean_accuracy": 0.9444243864447506,
+      "worst_accuracy": 0.9195121951219513,
+      "mean_macro_f1": 0.9439155585538973,
+      "worst_macro_f1": 0.9193201995338806
+    },
+    "source_domain_separability": {
+      "source_domain_separability_accuracy": 0.6910299003322259,
+      "chance_level": 0.3333333333333333
+    },
+    "sharpness_delta": 0.19886719435453415
+  },
+  "sam": {
+    "per_domain": {
+      "photo": {
+        "accuracy": 0.9820359281437125,
+        "macro_f1": 0.9780903989336865
+      },
+      "art_painting": {
+        "accuracy": 0.926829268292683,
+        "macro_f1": 0.9269736546907946
+      },
+      "cartoon": {
+        "accuracy": 0.9509594882729211,
+        "macro_f1": 0.9570793489974949
+      }
+    },
+    "aggregate": {
+      "mean_accuracy": 0.9532748949031055,
+      "worst_accuracy": 0.926829268292683,
+      "mean_macro_f1": 0.9540478008739921,
+      "worst_macro_f1": 0.9269736546907946
+    },
+    "source_domain_separability": {
+      "source_domain_separability_accuracy": 0.8770764119601329,
+      "chance_level": 0.3333333333333333
+    },
+    "sharpness_delta": 0.09054968506097794
+  }
+}

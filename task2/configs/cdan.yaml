@@ -1,0 +1,13 @@
+# task2/configs/cdan.yaml
+# Extends base.yaml. CDAN: gradient-reversal + domain discriminator on the
+# multilinear map g(x) = vec(f ⊗ p); no entropy conditioning, no detaching
+# f or p, per the assignment.
+extends: base.yaml
+method: cdan
+run_name: cdan
+alignment_loss: conditional_domain_adversarial
+grl_schedule: "2 / (1 + exp(-10p)) - 1"
+grl_max_alpha: 1.0
+domain_discriminator_input: multilinear_map  # 512 * num_classes-d, vec(f ⊗ p)
+entropy_conditioning: false
+detach_features_or_probs: false
